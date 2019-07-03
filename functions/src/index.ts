@@ -4,9 +4,9 @@ import { AuthService } from './auth';
 admin.initializeApp();
 
 export const createToken = functions.https.onRequest((request, response) => {
+        response.set('Access-Control-Allow-Origin', '*');
         const authService: AuthService = new AuthService(admin);
-        const uid = "aaaaa";
-        authService.createToken(uid)
+        authService.createToken(request.query['uid'])
         .then(
             data => {
                 response.send(data);
