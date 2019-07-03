@@ -8,8 +8,13 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth) {}
 
-  public login(token) {
-    this.afAuth.auth.signInWithCustomToken(token);
+  public login(token: string) {
+    console.log(token);
+    return this.afAuth.auth.signInWithCustomToken(token).then(
+      data => {
+        return true;
+      }
+    );
   }
 
   public logout() {

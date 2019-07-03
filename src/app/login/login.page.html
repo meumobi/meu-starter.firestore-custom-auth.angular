@@ -5,8 +5,11 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-input type="text" placeholder="Base URL" [(ngModel)]="baseUrl"></ion-input>
+  <ion-input type="text" placeholder="User Id" [(ngModel)]="uid"></ion-input>
+  <ion-button expand="full" (click)="generateToken()">Generate Token</ion-button>
   <ion-input type="text" placeholder="Token" [(ngModel)]="token"></ion-input>
-  <ion-button expand="full" (click)="login()" *ngIf="!(authState$ | async)">Login</ion-button>
+  <ion-button expand="full" (click)="login()" *ngIf="!(authState$ | async)">Login with Token</ion-button>
   <ion-button expand="full" color="secondary" (click)="logout()" *ngIf="(authState$ | async)">Logout</ion-button>
-  <ion-button expand="full" color="tertiary" href="/home" routerDirection="forward">Home</ion-button>
+  <a target="_blank" rel="noopener" href="/home/{{token}}">Login By URL</a>
 </ion-content>
