@@ -1,4 +1,3 @@
-
 import { AuthService } from './../core/auth/auth.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -33,6 +32,10 @@ export class LoginPage implements OnInit {
       }
     );
     return true;
+  }
+
+  loginMS() {
+   this.authService.loginMS();
   }
 
   login() {
